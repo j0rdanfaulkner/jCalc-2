@@ -17,6 +17,7 @@ namespace jCalc2 {
 	{
 	public:
 		float currentNum, ans;
+		double tmp;
 		int count;
 		MainWindow(void)
 		{
@@ -61,7 +62,7 @@ namespace jCalc2 {
 		{
 			if (tbxDisplay->Text != "") 
 			{
-				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				currentNum = float::Parse(tbxDisplay->Text);
 				tbxDisplay->Clear();
 				tbxDisplay->Focus();
 				count = 1;
@@ -95,7 +96,7 @@ namespace jCalc2 {
 		{
 			if (tbxDisplay->Text != "")
 			{
-				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				currentNum = float::Parse(tbxDisplay->Text);
 				tbxDisplay->Clear();
 				tbxDisplay->Focus();
 				count = 2;
@@ -129,7 +130,7 @@ namespace jCalc2 {
 		{
 			if (tbxDisplay->Text != "")
 			{
-				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				currentNum = float::Parse(tbxDisplay->Text);
 				tbxDisplay->Clear();
 				tbxDisplay->Focus();
 				count = 3;
@@ -163,7 +164,7 @@ namespace jCalc2 {
 		{
 			if (tbxDisplay->Text != "")
 			{
-				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				currentNum = float::Parse(tbxDisplay->Text);
 				tbxDisplay->Clear();
 				tbxDisplay->Focus();
 				count = 4;
@@ -195,7 +196,7 @@ namespace jCalc2 {
 		{
 			if (tbxDisplay->Text != "")
 			{
-				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				currentNum = float::Parse(tbxDisplay->Text);
 				currentNum = currentNum / 100;
 				tbxDisplay->Text = Convert::ToString(currentNum);
 				tbxDisplay->Focus();
@@ -229,7 +230,7 @@ namespace jCalc2 {
 		{
 			if (tbxDisplay->Text != "")
 			{
-				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				currentNum = float::Parse(tbxDisplay->Text);
 				tbxDisplay->Clear();
 				tbxDisplay->Focus();
 				count = 5;
@@ -257,7 +258,7 @@ namespace jCalc2 {
 		// call the compute method using the count as a parameter
 		System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^ e)
 		{
-			// compute(count);
+			compute(count);
 		}
 		// when the mouse cursor enters the equals button
 		// change its appearance
@@ -355,7 +356,48 @@ namespace jCalc2 {
 			{
 				tbxDisplay->Text = tbxDisplay->Text + ".";
 			}
-
+		}
+		// if user has entered their input
+		// use switch statement to perform the correct mathematical operation
+		// add = count 1
+		// subtract = count 2
+		// multiply = count 3
+		// divide = count 4
+		// square root = count 5
+		void compute(int count)
+		{
+			if (currentNum.ToString() == "")
+			{
+				string message = "Please enter a number";
+				// MessageBox.Show(message, "No Number Entered", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else
+			{
+				switch (count)
+				{
+				case 1:
+					ans = currentNum + float::Parse(tbxDisplay->Text);
+					tbxDisplay->Text = ans.ToString();
+					break;
+				case 2:
+					ans = currentNum - float::Parse(tbxDisplay->Text);
+					tbxDisplay->Text = ans.ToString();
+					break;
+				case 3:
+					ans = currentNum * float::Parse(tbxDisplay->Text);
+					tbxDisplay->Text = ans.ToString();
+					break;
+				case 4:
+					ans = currentNum / float::Parse(tbxDisplay->Text);
+					tbxDisplay->Text = ans.ToString();
+					break;
+				case 5:
+					tmp = Convert::ToDouble(currentNum);
+					ans = Convert::ToSingle(Math::Sqrt(tmp));
+					tbxDisplay->Text = ans.ToString();
+					break;
+				}
+			}
 		}
 	protected:
 		/// <summary>
