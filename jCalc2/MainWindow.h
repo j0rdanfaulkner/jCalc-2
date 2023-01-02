@@ -279,6 +279,51 @@ namespace jCalc2 {
 		{
 			tbxDisplay->Text = tbxDisplay->Text + 1;
 		}
+		// add a 2 to the end of the textbox when the '2' button is clicked
+		System::Void btn2_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 2;
+		}
+		// add a 3 to the end of the textbox when the '3' button is clicked
+		System::Void btn3_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 3;
+		}
+		// add a 4 to the end of the textbox when the '4' button is clicked
+		System::Void btn4_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 4;
+		}
+		// add a 5 to the end of the textbox when the '5' button is clicked
+		System::Void btn5_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 5;
+		}
+		// add a 6 to the end of the textbox when the '6' button is clicked
+		System::Void btn6_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 6;
+		}
+		// add a 7 to the end of the textbox when the '7' button is clicked
+		System::Void btn7_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 7;
+		}
+		// add a 8 to the end of the textbox when the '8' button is clicked
+		System::Void btn8_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 8;
+		}
+		// add a 9 to the end of the textbox when the '9' button is clicked
+		System::Void btn9_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 9;
+		}
+		// add a 0 to the end of the textbox when the '0' button is clicked
+		System::Void btn0_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 0;
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -461,6 +506,7 @@ namespace jCalc2 {
 			this->btn9->TabIndex = 7;
 			this->btn9->Text = L"9";
 			this->btn9->UseVisualStyleBackColor = false;
+			this->btn9->Click += gcnew System::EventHandler(this, &MainWindow::btn9_Click);
 			// 
 			// btn8
 			// 
@@ -475,6 +521,7 @@ namespace jCalc2 {
 			this->btn8->TabIndex = 6;
 			this->btn8->Text = L"8";
 			this->btn8->UseVisualStyleBackColor = false;
+			this->btn8->Click += gcnew System::EventHandler(this, &MainWindow::btn8_Click);
 			// 
 			// btn7
 			// 
@@ -489,6 +536,7 @@ namespace jCalc2 {
 			this->btn7->TabIndex = 5;
 			this->btn7->Text = L"7";
 			this->btn7->UseVisualStyleBackColor = false;
+			this->btn7->Click += gcnew System::EventHandler(this, &MainWindow::btn7_Click);
 			// 
 			// btnSubtract
 			// 
@@ -520,6 +568,7 @@ namespace jCalc2 {
 			this->btn6->TabIndex = 11;
 			this->btn6->Text = L"6";
 			this->btn6->UseVisualStyleBackColor = false;
+			this->btn6->Click += gcnew System::EventHandler(this, &MainWindow::btn6_Click);
 			// 
 			// btn5
 			// 
@@ -534,6 +583,7 @@ namespace jCalc2 {
 			this->btn5->TabIndex = 10;
 			this->btn5->Text = L"5";
 			this->btn5->UseVisualStyleBackColor = false;
+			this->btn5->Click += gcnew System::EventHandler(this, &MainWindow::btn5_Click);
 			// 
 			// btn4
 			// 
@@ -548,6 +598,7 @@ namespace jCalc2 {
 			this->btn4->TabIndex = 9;
 			this->btn4->Text = L"4";
 			this->btn4->UseVisualStyleBackColor = false;
+			this->btn4->Click += gcnew System::EventHandler(this, &MainWindow::btn4_Click);
 			// 
 			// btnAdd
 			// 
@@ -579,6 +630,7 @@ namespace jCalc2 {
 			this->btn3->TabIndex = 15;
 			this->btn3->Text = L"3";
 			this->btn3->UseVisualStyleBackColor = false;
+			this->btn3->Click += gcnew System::EventHandler(this, &MainWindow::btn3_Click);
 			// 
 			// btn2
 			// 
@@ -593,6 +645,7 @@ namespace jCalc2 {
 			this->btn2->TabIndex = 14;
 			this->btn2->Text = L"2";
 			this->btn2->UseVisualStyleBackColor = false;
+			this->btn2->Click += gcnew System::EventHandler(this, &MainWindow::btn2_Click);
 			// 
 			// btn1
 			// 
@@ -653,6 +706,7 @@ namespace jCalc2 {
 			this->btn0->TabIndex = 17;
 			this->btn0->Text = L"0";
 			this->btn0->UseVisualStyleBackColor = false;
+			this->btn0->Click += gcnew System::EventHandler(this, &MainWindow::btn0_Click);
 			// 
 			// MainWindow
 			// 
