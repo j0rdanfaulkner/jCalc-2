@@ -448,6 +448,7 @@ namespace jCalc2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainWindow::typeid));
 			this->btnClear = (gcnew System::Windows::Forms::Button());
 			this->tbxDisplay = (gcnew System::Windows::Forms::TextBox());
 			this->btnPercentage = (gcnew System::Windows::Forms::Button());
@@ -487,6 +488,7 @@ namespace jCalc2 {
 			// 
 			// tbxDisplay
 			// 
+			this->tbxDisplay->BackColor = System::Drawing::SystemColors::Info;
 			this->tbxDisplay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->tbxDisplay->Font = (gcnew System::Drawing::Font(L"DS-Digital", 44.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -537,7 +539,7 @@ namespace jCalc2 {
 			// btnDivide
 			// 
 			this->btnDivide->BackColor = System::Drawing::Color::White;
-			this->btnDivide->Font = (gcnew System::Drawing::Font(L"Eurostile LT Std Bold", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnDivide->Font = (gcnew System::Drawing::Font(L"Eurostile LT Std Bold", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnDivide->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(5)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
 				static_cast<System::Int32>(static_cast<System::Byte>(134)));
@@ -554,7 +556,7 @@ namespace jCalc2 {
 			// btnMultiply
 			// 
 			this->btnMultiply->BackColor = System::Drawing::Color::White;
-			this->btnMultiply->Font = (gcnew System::Drawing::Font(L"Eurostile LT Std Bold", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnMultiply->Font = (gcnew System::Drawing::Font(L"Eurostile LT Std Bold", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnMultiply->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(5)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
 				static_cast<System::Int32>(static_cast<System::Byte>(134)));
@@ -814,6 +816,7 @@ namespace jCalc2 {
 			this->Font = (gcnew System::Drawing::Font(L"Eurostile LT Std Bold", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(5);
 			this->MaximizeBox = false;
 			this->Name = L"MainWindow";
