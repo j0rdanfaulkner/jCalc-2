@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <Windows.h>
+#include <iostream>
 
 namespace jCalc2 {
 
@@ -25,26 +27,42 @@ namespace jCalc2 {
 			//
 
 		}
-		// when C/CE button is clicked
-		// clear the displayed numbers in the textbox at the top
-		// reset the count variable to 0
-	private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) {
+	// when C/CE button is clicked
+	// clear the displayed numbers in the textbox at the top
+	// reset the count variable to 0
+	private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
 		tbxDisplay->Clear();
 		count = 0;
 	}
-		// when the mouse cursor enters the C/CE button
-		// change the button's appearence
-	private: System::Void btnClear_MouseEnter(System::Object^ sender, System::EventArgs^ e) {
+	// when the mouse cursor enters the C/CE button
+	// change the button's appearence
+	private: System::Void btnClear_MouseEnter(System::Object^ sender, System::EventArgs^ e) 
+	{
 		btnClear->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
 		btnClear->ForeColor = System::Drawing::Color::White;
 	}
-		// when the mouse cursor leaves the C/CE button
-		// change the button's appearence back to its default appearence
-	private: System::Void btnClear_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+	// when the mouse cursor leaves the C/CE button
+	// change the button's appearence back to its default appearence
+	private: System::Void btnClear_MouseLeave(System::Object^ sender, System::EventArgs^ e) 
+	{
 		btnClear->BackColor = System::Drawing::Color::White;
 		btnClear->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
 	}
-
+	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		if (tbxDisplay->Text != "") 
+		{
+			currentNum = Convert::ToDouble(tbxDisplay->Text);
+			tbxDisplay->Clear();
+			tbxDisplay->Focus();
+			count = 1;
+		}
+		else
+		{
+			// System::Windows::Forms::MessageBox("A number must be entered before you can click the add button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+		}
+	}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -313,6 +331,7 @@ namespace jCalc2 {
 			this->btnAdd->TabIndex = 16;
 			this->btnAdd->Text = L"+";
 			this->btnAdd->UseVisualStyleBackColor = false;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &MainWindow::btnAdd_Click);
 			// 
 			// btn3
 			// 
