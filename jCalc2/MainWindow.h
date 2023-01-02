@@ -22,47 +22,263 @@ namespace jCalc2 {
 		MainWindow(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-
-		}
-	// when C/CE button is clicked
-	// clear the displayed numbers in the textbox at the top
-	// reset the count variable to 0
-	private: System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		tbxDisplay->Clear();
-		count = 0;
-	}
-	// when the mouse cursor enters the C/CE button
-	// change the button's appearence
-	private: System::Void btnClear_MouseEnter(System::Object^ sender, System::EventArgs^ e) 
-	{
-		btnClear->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
-		btnClear->ForeColor = System::Drawing::Color::White;
-	}
-	// when the mouse cursor leaves the C/CE button
-	// change the button's appearence back to its default appearence
-	private: System::Void btnClear_MouseLeave(System::Object^ sender, System::EventArgs^ e) 
-	{
-		btnClear->BackColor = System::Drawing::Color::White;
-		btnClear->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
-	}
-	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		if (tbxDisplay->Text != "") 
-		{
-			currentNum = Convert::ToDouble(tbxDisplay->Text);
 			tbxDisplay->Clear();
-			tbxDisplay->Focus();
-			count = 1;
 		}
-		else
+	private:
+		// quit application when 'X' of form window is clicked
+		System::Void MainWindow_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
 		{
-			// System::Windows::Forms::MessageBox("A number must be entered before you can click the add button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+			Application::Exit();
 		}
-	}
+		// when C/CE button is clicked
+		// clear the displayed numbers in the textbox at the top
+		// reset the count variable to 0
+		System::Void btnClear_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			tbxDisplay->Clear();
+			count = 0;
+		}
+		// when the mouse cursor enters the C/CE button
+		// change the button's appearance
+		System::Void btnClear_MouseEnter(System::Object^ sender, System::EventArgs^ e) 
+		{
+			btnClear->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnClear->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the C/CE button
+		// change the button's appearence back to its default appearance
+		System::Void btnClear_MouseLeave(System::Object^ sender, System::EventArgs^ e) 
+		{
+			btnClear->BackColor = System::Drawing::Color::White;
+			btnClear->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// when the add button is clicked
+		// check to make sure a number has been entered
+		// if so, parse the text of the text box as a float and store it as the current number
+		// clear the text box at the top (so that the user knows to enter the next number)
+		// set the focus to the text box at the top
+		// set the count variable to 1
+		System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			if (tbxDisplay->Text != "") 
+			{
+				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				tbxDisplay->Clear();
+				tbxDisplay->Focus();
+				count = 1;
+			}
+			else
+			{
+				// System::Windows::Forms::MessageBox("A number must be entered before you can click the add button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+			}
+		}
+		// when the mouse cursor enters the add button
+		// change its appearance
+		System::Void btnAdd_MouseEnter(System::Object^ sender, System::EventArgs^ e) 
+		{
+			btnAdd->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnAdd->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the add button
+		// change its appearance back to its default settings
+		System::Void btnAdd_MouseLeave(System::Object^ sender, System::EventArgs^ e) 
+		{
+			btnAdd->BackColor = System::Drawing::Color::White;
+			btnAdd->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// when the subtract button is clicked
+		// check to make sure that a number has been entered
+		// if so, parse the text of the text box as a float and store it as the current number
+		// clear the text box at the top (so that the user knows to enter the next number)
+		// set the focus to the text box at the top
+		// set the count variable to 2
+		System::Void btnSubtract_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			if (tbxDisplay->Text != "")
+			{
+				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				tbxDisplay->Clear();
+				tbxDisplay->Focus();
+				count = 2;
+			}
+			else
+			{
+				// System::Windows::Forms::MessageBox("A number must be entered before you can click the subtract button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+			}
+		}
+		// when the mouse cursor enters the subtract button
+		// change its appearance
+		System::Void btnSubtract_MouseEnter(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnSubtract->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnSubtract->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the subtract button
+		// change its appearance back to its default settings
+		System::Void btnSubtract_MouseLeave(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnSubtract->BackColor = System::Drawing::Color::White;
+			btnSubtract->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// when the multiply button is clicked
+		// check to make sure a number has been entered
+		// if so, parse the text of the text box as a float and store it as the current number
+		// clear the text box at the top (so that the user knows to enter the next number)
+		// set the focus to the text box at the top
+		// set the count variable to 3
+		System::Void btnMultiply_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			if (tbxDisplay->Text != "")
+			{
+				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				tbxDisplay->Clear();
+				tbxDisplay->Focus();
+				count = 3;
+			}
+			else
+			{
+				// System::Windows::Forms::MessageBox("A number must be entered before you can click the multiply button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+			}
+		}
+		// when the mouse cursor enters the multiply button
+		// change its appearance
+		System::Void btnMultiply_MouseEnter(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnMultiply->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnMultiply->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the multiply button
+		// change its appearance back to its default settings
+		System::Void btnMultiply_MouseLeave(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnMultiply->BackColor = System::Drawing::Color::White;
+			btnMultiply->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// when the divide button is clicked
+		// check to make sure a number has been entered
+		// if so, parse the text of the text box as a float and store it as the current number
+		// clear the text box at the top (so that the user knows to enter the next number)
+		// set the focus to the text box at the top
+		// set the count variable to 4
+		System::Void btnDivide_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			if (tbxDisplay->Text != "")
+			{
+				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				tbxDisplay->Clear();
+				tbxDisplay->Focus();
+				count = 4;
+			}
+			else
+			{
+				// System::Windows::Forms::MessageBox("A number must be entered before you can click the divide button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+			}
+		}
+		// when the mouse cursor enters the divide button
+		// change its appearance
+		System::Void btnDivide_MouseEnter(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnDivide->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnDivide->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the divide button
+		// change its appearance back to its default settings
+		System::Void btnDivide_MouseLeave(System::Object^ sender, System::EventArgs^ e) 
+		{
+			btnDivide->BackColor = System::Drawing::Color::White;
+			btnDivide->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// when the percent button is clicked
+		// parse the text of the text box as a float and store it as the current number
+		// divide the current number by 100 (to make it into a percentage)
+		// set the focus to the text box at the top
+		System::Void btnPercentage_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			if (tbxDisplay->Text != "")
+			{
+				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				currentNum = currentNum / 100;
+				tbxDisplay->Text = Convert::ToString(currentNum);
+				tbxDisplay->Focus();
+			}
+			else
+			{
+				// System::Windows::Forms::MessageBox("A number must be entered before you can click the percentage button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+			}
+		}
+		// when the mouse cursor enters the percentage button
+		// change its appearance
+		System::Void btnPercentage_MouseEnter(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnPercentage->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnPercentage->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the percentage button
+		// change its appearance back to its default settings
+		System::Void btnPercentage_MouseLeave(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnPercentage->BackColor = System::Drawing::Color::White;
+			btnPercentage->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// when the square root button is clicked
+		// check to make sure a number has been entered
+		// if so, parse the text of the text box as a float and store it as the current number
+		// clear the text box at the top (so that the user knows to enter the next number)
+		// set the focus to the text box at the top
+		// set the count variable to 5
+		System::Void btnSqrRoot_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			if (tbxDisplay->Text != "")
+			{
+				currentNum = Convert::ToDouble(tbxDisplay->Text);
+				tbxDisplay->Clear();
+				tbxDisplay->Focus();
+				count = 5;
+			}
+			else
+			{
+				// System::Windows::Forms::MessageBox("A number must be entered before you can click the square root button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+			}
+		}
+		// when the mouse cursor enters the square root button
+		// change its appearance
+		System::Void btnSqrRoot_MouseEnter(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnSqrRoot->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnSqrRoot->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the square root button
+		// change its appearance back to its default settings
+		System::Void btnSqrRoot_MouseLeave(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnSqrRoot->BackColor = System::Drawing::Color::White;
+			btnSqrRoot->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// when equals button is clicked
+		// call the compute method using the count as a parameter
+		System::Void btnEquals_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			// compute(count);
+		}
+		// when the mouse cursor enters the equals button
+		// change its appearance
+		System::Void btnEquals_MouseEnter(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnEquals->BackColor = System::Drawing::Color::FromArgb(5, 70, 134);
+			btnEquals->ForeColor = System::Drawing::Color::White;
+		}
+		// when the mouse cursor leaves the equals button
+		// change its appearance back to its default settings
+		System::Void btnEquals_MouseLeave(System::Object^ sender, System::EventArgs^ e)
+		{
+			btnEquals->BackColor = System::Drawing::Color::White;
+			btnEquals->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
+		}
+		// add a 1 to the end of the textbox when the '1' button is clicked
+		System::Void btn1_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			tbxDisplay->Text = tbxDisplay->Text + 1;
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -82,7 +298,7 @@ namespace jCalc2 {
 	private: System::Windows::Forms::Button^ btnPercentage;
 	private: System::Windows::Forms::Button^ btnSqrRoot;
 	private: System::Windows::Forms::Button^ btnDivide;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ btnMultiply;
 	private: System::Windows::Forms::Button^ btn9;
 	private: System::Windows::Forms::Button^ btn8;
 	private: System::Windows::Forms::Button^ btn7;
@@ -117,7 +333,7 @@ namespace jCalc2 {
 			this->btnPercentage = (gcnew System::Windows::Forms::Button());
 			this->btnSqrRoot = (gcnew System::Windows::Forms::Button());
 			this->btnDivide = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnMultiply = (gcnew System::Windows::Forms::Button());
 			this->btn9 = (gcnew System::Windows::Forms::Button());
 			this->btn8 = (gcnew System::Windows::Forms::Button());
 			this->btn7 = (gcnew System::Windows::Forms::Button());
@@ -158,11 +374,11 @@ namespace jCalc2 {
 			this->tbxDisplay->MaxLength = 9;
 			this->tbxDisplay->Name = L"tbxDisplay";
 			this->tbxDisplay->ReadOnly = true;
-			this->tbxDisplay->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->tbxDisplay->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->tbxDisplay->Size = System::Drawing::Size(278, 66);
 			this->tbxDisplay->TabIndex = 1;
 			this->tbxDisplay->Text = L"000000000";
-			this->tbxDisplay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->tbxDisplay->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// btnPercentage
 			// 
@@ -177,6 +393,9 @@ namespace jCalc2 {
 			this->btnPercentage->TabIndex = 2;
 			this->btnPercentage->Text = L"%";
 			this->btnPercentage->UseVisualStyleBackColor = false;
+			this->btnPercentage->Click += gcnew System::EventHandler(this, &MainWindow::btnPercentage_Click);
+			this->btnPercentage->MouseEnter += gcnew System::EventHandler(this, &MainWindow::btnPercentage_MouseEnter);
+			this->btnPercentage->MouseLeave += gcnew System::EventHandler(this, &MainWindow::btnPercentage_MouseLeave);
 			// 
 			// btnSqrRoot
 			// 
@@ -191,6 +410,9 @@ namespace jCalc2 {
 			this->btnSqrRoot->TabIndex = 3;
 			this->btnSqrRoot->Text = L"√";
 			this->btnSqrRoot->UseVisualStyleBackColor = false;
+			this->btnSqrRoot->Click += gcnew System::EventHandler(this, &MainWindow::btnSqrRoot_Click);
+			this->btnSqrRoot->MouseEnter += gcnew System::EventHandler(this, &MainWindow::btnSqrRoot_MouseEnter);
+			this->btnSqrRoot->MouseLeave += gcnew System::EventHandler(this, &MainWindow::btnSqrRoot_MouseLeave);
 			// 
 			// btnDivide
 			// 
@@ -205,20 +427,26 @@ namespace jCalc2 {
 			this->btnDivide->TabIndex = 4;
 			this->btnDivide->Text = L"÷";
 			this->btnDivide->UseVisualStyleBackColor = false;
+			this->btnDivide->Click += gcnew System::EventHandler(this, &MainWindow::btnDivide_Click);
+			this->btnDivide->MouseEnter += gcnew System::EventHandler(this, &MainWindow::btnDivide_MouseEnter);
+			this->btnDivide->MouseLeave += gcnew System::EventHandler(this, &MainWindow::btnDivide_MouseLeave);
 			// 
-			// button1
+			// btnMultiply
 			// 
-			this->button1->BackColor = System::Drawing::Color::White;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Eurostile LT Std Bold", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnMultiply->BackColor = System::Drawing::Color::White;
+			this->btnMultiply->Font = (gcnew System::Drawing::Font(L"Eurostile LT Std Bold", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(5)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
+			this->btnMultiply->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(5)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
 				static_cast<System::Int32>(static_cast<System::Byte>(134)));
-			this->button1->Location = System::Drawing::Point(225, 153);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(65, 65);
-			this->button1->TabIndex = 8;
-			this->button1->Text = L"X";
-			this->button1->UseVisualStyleBackColor = false;
+			this->btnMultiply->Location = System::Drawing::Point(225, 153);
+			this->btnMultiply->Name = L"btnMultiply";
+			this->btnMultiply->Size = System::Drawing::Size(65, 65);
+			this->btnMultiply->TabIndex = 8;
+			this->btnMultiply->Text = L"X";
+			this->btnMultiply->UseVisualStyleBackColor = false;
+			this->btnMultiply->Click += gcnew System::EventHandler(this, &MainWindow::btnMultiply_Click);
+			this->btnMultiply->MouseEnter += gcnew System::EventHandler(this, &MainWindow::btnMultiply_MouseEnter);
+			this->btnMultiply->MouseLeave += gcnew System::EventHandler(this, &MainWindow::btnMultiply_MouseLeave);
 			// 
 			// btn9
 			// 
@@ -275,6 +503,9 @@ namespace jCalc2 {
 			this->btnSubtract->TabIndex = 12;
 			this->btnSubtract->Text = L"--";
 			this->btnSubtract->UseVisualStyleBackColor = false;
+			this->btnSubtract->Click += gcnew System::EventHandler(this, &MainWindow::btnSubtract_Click);
+			this->btnSubtract->MouseEnter += gcnew System::EventHandler(this, &MainWindow::btnSubtract_MouseEnter);
+			this->btnSubtract->MouseLeave += gcnew System::EventHandler(this, &MainWindow::btnSubtract_MouseLeave);
 			// 
 			// btn6
 			// 
@@ -332,6 +563,8 @@ namespace jCalc2 {
 			this->btnAdd->Text = L"+";
 			this->btnAdd->UseVisualStyleBackColor = false;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &MainWindow::btnAdd_Click);
+			this->btnAdd->MouseEnter += gcnew System::EventHandler(this, &MainWindow::btnAdd_MouseEnter);
+			this->btnAdd->MouseLeave += gcnew System::EventHandler(this, &MainWindow::btnAdd_MouseLeave);
 			// 
 			// btn3
 			// 
@@ -374,6 +607,7 @@ namespace jCalc2 {
 			this->btn1->TabIndex = 13;
 			this->btn1->Text = L"1";
 			this->btn1->UseVisualStyleBackColor = false;
+			this->btn1->Click += gcnew System::EventHandler(this, &MainWindow::btn1_Click);
 			// 
 			// btnEquals
 			// 
@@ -388,6 +622,9 @@ namespace jCalc2 {
 			this->btnEquals->TabIndex = 19;
 			this->btnEquals->Text = L"=";
 			this->btnEquals->UseVisualStyleBackColor = false;
+			this->btnEquals->Click += gcnew System::EventHandler(this, &MainWindow::btnEquals_Click);
+			this->btnEquals->MouseEnter += gcnew System::EventHandler(this, &MainWindow::btnEquals_MouseEnter);
+			this->btnEquals->MouseLeave += gcnew System::EventHandler(this, &MainWindow::btnEquals_MouseLeave);
 			// 
 			// btnDecimal
 			// 
@@ -435,7 +672,7 @@ namespace jCalc2 {
 			this->Controls->Add(this->btn6);
 			this->Controls->Add(this->btn5);
 			this->Controls->Add(this->btn4);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->btnMultiply);
 			this->Controls->Add(this->btn9);
 			this->Controls->Add(this->btn8);
 			this->Controls->Add(this->btn7);
@@ -451,6 +688,7 @@ namespace jCalc2 {
 			this->MaximizeBox = false;
 			this->Name = L"MainWindow";
 			this->Text = L"jCalc 2";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MainWindow::MainWindow_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
