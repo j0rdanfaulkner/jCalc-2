@@ -1,9 +1,8 @@
 ﻿#pragma once
 #include <Windows.h>
 #include <iostream>
-
 namespace jCalc2 {
-
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -323,6 +322,40 @@ namespace jCalc2 {
 		System::Void btn0_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			tbxDisplay->Text = tbxDisplay->Text + 0;
+		}
+		// when the button for inserting a decimal place is clicked
+		// get the length of the text of the text box and store this as an int variable called 'length'
+		// set another int variable called 'flag' to '0'
+		// store the text value of the text box as a string
+		// create a for loop that iterates until the length of the text box is reached (to check for existing decimal)
+		// if the text value at 'i' is equal to a decimal point, break the for loop and set the flag variable to '1'
+		// if there is currently no decimal (in other words, flag remained equal to '0')
+		// set the text box text to equal '.'
+		System::Void btnDecimal_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			int length = tbxDisplay->TextLength;
+			int flag = 0;
+			System::String^ text = tbxDisplay->Text;
+			int i;
+			for (i = 0; i < length; i++)
+			{
+				if (text[i].ToString() == ".")
+				{
+					flag = 1;
+					string message = "Decimal has already been entered";
+					// MessageBox.Show(message, "Decimal Already Entered", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					break;
+				}
+				else
+				{
+					flag = 0;
+				}
+			}
+			if (flag == 0)
+			{
+				tbxDisplay->Text = tbxDisplay->Text + ".";
+			}
+
 		}
 	protected:
 		/// <summary>
@@ -692,6 +725,7 @@ namespace jCalc2 {
 			this->btnDecimal->TabIndex = 18;
 			this->btnDecimal->Text = L".";
 			this->btnDecimal->UseVisualStyleBackColor = false;
+			this->btnDecimal->Click += gcnew System::EventHandler(this, &MainWindow::btnDecimal_Click);
 			// 
 			// btn0
 			// 
