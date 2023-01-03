@@ -11,7 +11,7 @@ namespace jCalc2 {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for MainWindow
+	/// Form for the UI of the calculator
 	/// </summary>
 	public ref class MainWindow : public System::Windows::Forms::Form
 	{
@@ -58,6 +58,7 @@ namespace jCalc2 {
 		// clear the text box at the top (so that the user knows to enter the next number)
 		// set the focus to the text box at the top
 		// set the count variable to 1
+		// if number has not been entered, show message box asking user to enter a number
 		System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) 
 		{
 			if (tbxDisplay->Text != "") 
@@ -69,7 +70,7 @@ namespace jCalc2 {
 			}
 			else
 			{
-				// System::Windows::Forms::MessageBox("A number must be entered before you can click the add button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+				MessageBox::Show("A number must be entered before you can click the add button", "No Number Entered", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 		}
 		// when the mouse cursor enters the add button
@@ -92,6 +93,7 @@ namespace jCalc2 {
 		// clear the text box at the top (so that the user knows to enter the next number)
 		// set the focus to the text box at the top
 		// set the count variable to 2
+		// if number has not been entered, show message box asking user to enter a number
 		System::Void btnSubtract_Click(System::Object^ sender, System::EventArgs^ e) 
 		{
 			if (tbxDisplay->Text != "")
@@ -103,7 +105,7 @@ namespace jCalc2 {
 			}
 			else
 			{
-				// System::Windows::Forms::MessageBox("A number must be entered before you can click the subtract button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+				MessageBox::Show("A number must be entered before you can click the subtract button", "No Number Entered", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 		}
 		// when the mouse cursor enters the subtract button
@@ -126,6 +128,7 @@ namespace jCalc2 {
 		// clear the text box at the top (so that the user knows to enter the next number)
 		// set the focus to the text box at the top
 		// set the count variable to 3
+		// if number has not been entered, show message box asking user to enter a number
 		System::Void btnMultiply_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			if (tbxDisplay->Text != "")
@@ -137,7 +140,7 @@ namespace jCalc2 {
 			}
 			else
 			{
-				// System::Windows::Forms::MessageBox("A number must be entered before you can click the multiply button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+				MessageBox::Show("A number must be entered before you can click the multiply button", "No Number Entered", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 		}
 		// when the mouse cursor enters the multiply button
@@ -160,6 +163,7 @@ namespace jCalc2 {
 		// clear the text box at the top (so that the user knows to enter the next number)
 		// set the focus to the text box at the top
 		// set the count variable to 4
+		// if number has not been entered, show message box asking user to enter a number
 		System::Void btnDivide_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			if (tbxDisplay->Text != "")
@@ -171,7 +175,7 @@ namespace jCalc2 {
 			}
 			else
 			{
-				// System::Windows::Forms::MessageBox("A number must be entered before you can click the divide button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+				MessageBox::Show("A number must be entered before you can click the divide button", "No Number Entered", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 		}
 		// when the mouse cursor enters the divide button
@@ -189,9 +193,11 @@ namespace jCalc2 {
 			btnDivide->ForeColor = System::Drawing::Color::FromArgb(5, 70, 134);
 		}
 		// when the percent button is clicked
-		// parse the text of the text box as a float and store it as the current number
+		// check to make sure a number has been entered
+		// if so, parse the text of the text box as a float and store it as the current number
 		// divide the current number by 100 (to make it into a percentage)
 		// set the focus to the text box at the top
+		// if number has not been entered, show message box asking user to enter a number
 		System::Void btnPercentage_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			if (tbxDisplay->Text != "")
@@ -203,7 +209,7 @@ namespace jCalc2 {
 			}
 			else
 			{
-				// System::Windows::Forms::MessageBox("A number must be entered before you can click the percentage button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+				MessageBox::Show("A number must be entered before you can click the percentage button", "No Number Entered", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 		}
 		// when the mouse cursor enters the percentage button
@@ -226,6 +232,7 @@ namespace jCalc2 {
 		// clear the text box at the top (so that the user knows to enter the next number)
 		// set the focus to the text box at the top
 		// set the count variable to 5
+		// if number has not been entered, show message box asking user to enter a number
 		System::Void btnSqrRoot_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			if (tbxDisplay->Text != "")
@@ -237,7 +244,7 @@ namespace jCalc2 {
 			}
 			else
 			{
-				// System::Windows::Forms::MessageBox("A number must be entered before you can click the square root button", "No Number Entered", MB_OK | MB_ICONINFORMATION);
+				MessageBox::Show("A number must be entered before you can click the square root button", "No Number Entered", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 		}
 		// when the mouse cursor enters the square root button
@@ -332,6 +339,7 @@ namespace jCalc2 {
 		// if the text value at 'i' is equal to a decimal point, break the for loop and set the flag variable to '1'
 		// if there is currently no decimal (in other words, flag remained equal to '0')
 		// set the text box text to equal '.'
+		// if a decimal has already been entered, show a message box explaining this to the user
 		System::Void btnDecimal_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			int length = tbxDisplay->TextLength;
@@ -343,8 +351,7 @@ namespace jCalc2 {
 				if (text[i].ToString() == ".")
 				{
 					flag = 1;
-					string message = "Decimal has already been entered";
-					// MessageBox.Show(message, "Decimal Already Entered", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox::Show("A decimal point has already been entered", "Decimal Already Entered", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 					break;
 				}
 				else
@@ -368,27 +375,26 @@ namespace jCalc2 {
 		{
 			if (currentNum.ToString() == "")
 			{
-				string message = "Please enter a number";
-				// MessageBox.Show(message, "No Number Entered", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox::Show("Enter another number to perform the mathematical operation", "Enter Another number", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 			else
 			{
 				switch (count)
 				{
 				case 1:
-					ans = currentNum + float::Parse(tbxDisplay->Text);
+					ans = currentNum + float::TryParse(tbxDisplay->Text, ans);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 2:
-					ans = currentNum - float::Parse(tbxDisplay->Text);
+					ans = currentNum - float::TryParse(tbxDisplay->Text, ans);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 3:
-					ans = currentNum * float::Parse(tbxDisplay->Text);
+					ans = currentNum * float::TryParse(tbxDisplay->Text, ans);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 4:
-					ans = currentNum / float::Parse(tbxDisplay->Text);
+					ans = currentNum / float::TryParse(tbxDisplay->Text, ans);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 5:
@@ -824,7 +830,6 @@ namespace jCalc2 {
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MainWindow::MainWindow_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 };
