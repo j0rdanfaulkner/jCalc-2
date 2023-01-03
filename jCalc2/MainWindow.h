@@ -382,19 +382,19 @@ namespace jCalc2 {
 				switch (count)
 				{
 				case 1:
-					ans = currentNum + float::TryParse(tbxDisplay->Text, ans);
+					ans = currentNum + float::Parse(tbxDisplay->Text);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 2:
-					ans = currentNum - float::TryParse(tbxDisplay->Text, ans);
+					ans = currentNum - float::Parse(tbxDisplay->Text);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 3:
-					ans = currentNum * float::TryParse(tbxDisplay->Text, ans);
+					ans = currentNum * float::Parse(tbxDisplay->Text);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 4:
-					ans = currentNum / float::TryParse(tbxDisplay->Text, ans);
+					ans = currentNum / float::Parse(tbxDisplay->Text);
 					tbxDisplay->Text = ans.ToString();
 					break;
 				case 5:
