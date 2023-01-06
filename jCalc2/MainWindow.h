@@ -228,19 +228,15 @@ namespace jCalc2 {
 		}
 		// when the square root button is clicked
 		// check to make sure a number has been entered
-		// if so, parse the text of the text box as a float and store it as the current number
-		// clear the text box at the top (so that the user knows to enter the next number)
-		// set the focus to the text box at the top
-		// set the count variable to 5
-		// if number has not been entered, show message box asking user to enter a number
+		// if so, get the text value of the display textbox
+		// parse this as a float and store it as 'currentNum'
+		// call the 'squareRoot' method with 'currentNum' as a parameter
 		System::Void btnSqrRoot_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			if (tbxDisplay->Text != "")
 			{
 				currentNum = float::Parse(tbxDisplay->Text);
-				tbxDisplay->Clear();
-				tbxDisplay->Focus();
-				count = 5;
+				squareRoot(currentNum);
 			}
 			else
 			{
@@ -370,7 +366,6 @@ namespace jCalc2 {
 		// subtract = count 2
 		// multiply = count 3
 		// divide = count 4
-		// square root = count 5
 		void compute(int count)
 		{
 			if (currentNum.ToString() == "")
@@ -397,13 +392,18 @@ namespace jCalc2 {
 					ans = currentNum / float::Parse(tbxDisplay->Text);
 					tbxDisplay->Text = ans.ToString();
 					break;
-				case 5:
-					tmp = Convert::ToDouble(currentNum);
-					ans = Convert::ToSingle(Math::Sqrt(tmp));
-					tbxDisplay->Text = ans.ToString();
-					break;
 				}
 			}
+		}
+		// convert the 'currentNum' parameter to the double data type and store this as 'tmp'
+		// use the Math class to access the Sqrt() function, using 'tmp' as a parameter
+		// convert this to the single data type (float) and store this as 'ans'
+		// convert 'ans' to string and set the display textbox value as the result
+		void squareRoot(float currentNum)
+		{
+			tmp = Convert::ToDouble(currentNum);
+			ans = Convert::ToSingle(Math::Sqrt(tmp));
+			tbxDisplay->Text = ans.ToString();
 		}
 	protected:
 		/// <summary>
