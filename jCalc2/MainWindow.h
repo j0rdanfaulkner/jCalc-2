@@ -368,9 +368,9 @@ namespace jCalc2 {
 		// divide = count 4
 		void compute(int count)
 		{
-			if (currentNum.ToString() == "")
+			if (currentNum.ToString() == "" || tbxDisplay->Text == "")
 			{
-				MessageBox::Show("Enter another number to perform the mathematical operation", "Enter Another number", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+				MessageBox::Show("Enter a number and try again", "Number Required", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			}
 			else
 			{
